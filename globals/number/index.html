@@ -1,0 +1,2015 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../modules/">
+      
+      
+        <link rel="next" href="../optionalrequire/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>number - Lualibs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#global-number" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Lualibs" class="md-header__button md-logo" aria-label="Lualibs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lualibs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              number
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Lualibs" class="md-nav__button md-logo" aria-label="Lualibs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Lualibs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Types
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/CharacterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    alias CharacterGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/StriplinePattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    alias StriplinePattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/Module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    class Module
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/Url/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    class Url
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Globals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Globals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../boolean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    boolean
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dir
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gzip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gzip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inspect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    inspect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    io
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lfs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lualibs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lualibs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    number
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    number
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numbertobitstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tobitstring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbervalid" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.valid
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertoevenhex" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.toevenhex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberbytetodecimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.bytetodecimal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberdecimaltobyte" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.decimaltobyte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberidiv" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.idiv
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertonumberf" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tonumberf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertonumberg" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tonumberg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertodimen" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.todimen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertopoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.topoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertoinches" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.toinches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertocentimeters" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tocentimeters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertomillimeters" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tomillimeters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertoscaledpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.toscaledpoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertobasepoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tobasepoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertopicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.topicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertodidots" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.todidots
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertociceros" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tociceros
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbersplitdimen" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.splitdimen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertoscaled" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.toscaled
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberpercent" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.percent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbernupoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.nupoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberbasepoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.basepoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbernubasepoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.nubasepoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbersigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.signed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberformatted" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.formatted
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbercompactfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.compactfloat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbersparseexponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.sparseexponent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberformattedfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.formattedfloat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberto16dot16" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.to16dot16
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optionalrequire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    optionalrequire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    os
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    package
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setinspector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    setinspector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    statistics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toboolean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    toboolean
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trackers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    trackers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../url/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    url
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    utf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    utilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numbertobitstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tobitstring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbervalid" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.valid
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertoevenhex" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.toevenhex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberbytetodecimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.bytetodecimal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberdecimaltobyte" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.decimaltobyte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberidiv" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.idiv
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertonumberf" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tonumberf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertonumberg" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tonumberg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertodimen" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.todimen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertopoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.topoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertoinches" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.toinches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertocentimeters" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tocentimeters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertomillimeters" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tomillimeters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertoscaledpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.toscaledpoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertobasepoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tobasepoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertopicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.topicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertodidots" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.todidots
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertociceros" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.tociceros
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbersplitdimen" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.splitdimen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbertoscaled" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.toscaled
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberpercent" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.percent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.points
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbernupoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.nupoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberbasepoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.basepoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbernubasepoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.nubasepoints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbersigned" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.signed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberformatted" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.formatted
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbercompactfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.compactfloat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numbersparseexponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.sparseexponent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberformattedfloat" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.formattedfloat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numberto16dot16" class="md-nav__link">
+    <span class="md-ellipsis">
+      number.to16dot16
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="global-number">global number</h1>
+<hr />
+<h2 id="methods">methods</h2>
+<hr />
+<h3 id="numbertobitstring">number.tobitstring</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">tobitstring</span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nv">b</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nv">m</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nv">w</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-number.lua#L25-L99">lualibs-number.lua#L25-L99</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbervalid">number.valid</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">valid</span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nv">str</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nv">default</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-number.lua#L101-L103">ualibs-number.lua#L101-L103</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertoevenhex">number.toevenhex</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">toevenhex</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-number.lua#L105-L112">lualibs-number.lua#L105-L112</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numberbytetodecimal">number.bytetodecimal</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">bytetodecimal</span><span class="p">(</span><span class="nv">b</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-number.lua#L169-L178">lualibs-number.lua#L169-L178</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numberdecimaltobyte">number.decimaltobyte</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">decimaltobyte</span><span class="p">(</span><span class="nv">d</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-number.lua#L180-L189">lualibs-number.lua#L180-L189</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numberidiv">number.idiv</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">idiv</span><span class="p">(</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nv">i</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nv">d</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-number.lua#L191-L193">lualibs-number.lua#L191-L193</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertonumberf">number.tonumberf</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">tonumberf</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L34">lualibs-util-dim.lua#L34</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertonumberg">number.tonumberg</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">tonumberg</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L35">lualibs-util-dim.lua#L35</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertodimen">number.todimen</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">todimen</span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nv">unit</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nv">fmt</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L97-L111">lualibs-util-dim.lua#L97-L111</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertopoints">number.topoints</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">topoints</span><span class="p">(</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nv">fmt</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L121">lualibs-util-dim.lua#L121</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertoinches">number.toinches</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">toinches</span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nv">fmt</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L122">lualibs-util-dim.lua#L122</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertocentimeters">number.tocentimeters</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">tocentimeters</span><span class="p">(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nv">fmt</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L123">lualibs-util-dim.lua#L123</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertomillimeters">number.tomillimeters</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">tomillimeters</span><span class="p">(</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nv">fmt</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L124">lualibs-util-dim.lua#L124</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertoscaledpoints">number.toscaledpoints</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">toscaledpoints</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L125-L126">lualibs-util-dim.lua#L125-L126</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertobasepoints">number.tobasepoints</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">tobasepoints</span><span class="p">(</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nv">fmt</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L127">lualibs-util-dim.lua#L127</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertopicas">number.topicas</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">topicas</span><span class="p">(</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nv">fmt</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L128">lualibs-util-dim.lua#L128</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertodidots">number.todidots</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">todidots</span><span class="p">(</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nv">fmt</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L129">lualibs-util-dim.lua#L129</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertociceros">number.tociceros</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">tociceros</span><span class="p">(</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nv">fmt</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L130">lualibs-util-dim.lua#L130</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbersplitdimen">number.splitdimen</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">splitdimen</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L151-L153">lualibs-util-dim.lua#L151-L153</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbertoscaled">number.toscaled</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">toscaled</span><span class="p">(</span><span class="nv">d</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L435-L437">lualibs-util-dim.lua#L435-L437</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numberpercent">number.percent</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">percent</span><span class="p">(</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="nv">d</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-dim.lua#L448-L454">lualibs-util-dim.lua#L448-L454</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numberpoints">number.points</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">points</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-util-str.lua#L63-L77">lualibs-util-str.lua#L63-L77</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbernupoints">number.nupoints</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">nupoints</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-util-str.lua#L79-L93">lualibs-util-str.lua#L79-L93</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numberbasepoints">number.basepoints</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">basepoints</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-util-str.lua#L95-L109">lualibs-util-str.lua#L95-L109</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbernubasepoints">number.nubasepoints</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">nubasepoints</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-util-str.lua#L111-L125">lualibs-util-str.lua#L111-L125</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbersigned">number.signed</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">signed</span><span class="p">(</span><span class="nv">i</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-util-str.lua#L482-L488">lualibs-util-str.lua#L482-L488</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numberformatted">number.formatted</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">formatted</span><span class="p">(</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="nv">sep1</span><span class="p">,</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">  </span><span class="nv">sep2</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-util-str.lua#L512-L532">lualibs-util-str.lua#L512-L532</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbercompactfloat">number.compactfloat</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">compactfloat</span><span class="p">(</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">  </span><span class="nv">fmt</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-util-str.lua#L561-L572">lualibs-util-str.lua#L561-L572</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numbersparseexponent">number.sparseexponent</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">sparseexponent</span><span class="p">(</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="nv">f</span><span class="p">,</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span><span class="nv">n</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-util-str.lua#L583-L598">lualibs-util-str.lua#L583-L598</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numberformattedfloat">number.formattedfloat</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">formattedfloat</span><span class="p">(</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">  </span><span class="nv">n</span><span class="p">,</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">  </span><span class="nv">b</span><span class="p">,</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">  </span><span class="nv">a</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-util-str.lua#L615-L623">lualibs-util-str.lua#L615-L623</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="numberto16dot16">number.to16dot16</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">number</span><span class="p">.</span><span class="nf">to16dot16</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-util-str.lua#L1508-L1510">lualibs-util-str.lua#L1508-L1510</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/number.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["quick-links", "navigation", "search", "toc", "fullscreen", "bookmarks", "tabs", "code", "edit-on-github", "language-selector", "code", "cover", "footer", "social-share", "theme-switcher"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

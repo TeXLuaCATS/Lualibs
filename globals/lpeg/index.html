@@ -1,0 +1,2096 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lfs/">
+      
+      
+        <link rel="next" href="../lua/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>lpeg - Lualibs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#global-lpeg" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Lualibs" class="md-header__button md-logo" aria-label="Lualibs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lualibs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              lpeg
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Lualibs" class="md-nav__button md-logo" aria-label="Lualibs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Lualibs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Types
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/CharacterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    alias CharacterGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/StriplinePattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    alias StriplinePattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/Module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    class Module
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/Url/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    class Url
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Globals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Globals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../boolean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    boolean
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dir
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gzip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gzip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inspect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    inspect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    io
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lfs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    lpeg
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    lpeg
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lpegup" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.UP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegur" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.UR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegus" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.US
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegafterprefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.afterprefix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpeganywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.anywhere
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegappend" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.append
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.balancer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegbeforesuffix" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.beforesuffix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegcontainsws" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.containsws
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegcounter" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.counter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegendstripper" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.endstripper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.finder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegfrontstripper" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.frontstripper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpeginstringchecker" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.instringchecker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegis_lpeg" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.is_lpeg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegoneof" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.oneof
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegpcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.pcode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.print
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegptree" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.ptree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegsetutfcasers" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.setutfcasers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegsplitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.splitter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegsplitat" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.splitat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegfirstofsplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.firstofsplit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegsecondofsplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.secondofsplit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegsplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.split
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegcheckedsplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.checkedsplit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegstripper" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.stripper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegkeeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.keeper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegreplacer" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.replacer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegtimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.times
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegtsplitat" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.tsplitat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegtsplitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.tsplitter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegutfchartabletopattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.utfchartabletopattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegutfreplacer" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.utfreplacer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lualibs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lualibs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../number/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    number
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optionalrequire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    optionalrequire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    os
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    package
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setinspector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    setinspector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    statistics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toboolean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    toboolean
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trackers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    trackers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../url/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    url
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    utf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    utilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lpegup" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.UP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegur" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.UR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegus" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.US
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegafterprefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.afterprefix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpeganywhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.anywhere
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegappend" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.append
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegbalancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.balancer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegbeforesuffix" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.beforesuffix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegcontainsws" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.containsws
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegcounter" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.counter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegendstripper" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.endstripper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegfinder" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.finder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegfrontstripper" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.frontstripper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpeginstringchecker" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.instringchecker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegis_lpeg" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.is_lpeg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegoneof" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.oneof
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegpcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.pcode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.print
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegptree" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.ptree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegsetutfcasers" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.setutfcasers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegsplitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.splitter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegsplitat" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.splitat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegfirstofsplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.firstofsplit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegsecondofsplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.secondofsplit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegsplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.split
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegcheckedsplit" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.checkedsplit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegstripper" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.stripper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegkeeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.keeper
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegreplacer" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.replacer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegtimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.times
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegtsplitat" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.tsplitat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegtsplitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.tsplitter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegutfchartabletopattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.utfchartabletopattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lpegutfreplacer" class="md-nav__link">
+    <span class="md-ellipsis">
+      lpeg.utfreplacer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="global-lpeg">global lpeg</h1>
+<hr />
+<h2 id="methods">methods</h2>
+<hr />
+<h3 id="lpegup">lpeg.UP</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">UP</span><span class="p">()</span>
+</span></code></pre></div>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegur">lpeg.UR</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">UR</span><span class="p">()</span>
+</span></code></pre></div>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegus">lpeg.US</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">US</span><span class="p">()</span>
+</span></code></pre></div>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegafterprefix">lpeg.afterprefix</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">afterprefix</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L616-L624">lualibs-lpeg.lua#L616-L624</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpeganywhere">lpeg.anywhere</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">anywhere</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L302-L304">lualibs-lpeg.lua#L302-L304</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library/String_manipulation">ConTeXt and Lua programming/Extensions to the Lua IO library/String manipulation</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegappend">lpeg.append</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">append</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L715-L783">lualibs-lpeg.lua#L715-L783</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegbalancer">lpeg.balancer</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">balancer</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L626-L629">lualibs-lpeg.lua#L626-L629</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegbeforesuffix">lpeg.beforesuffix</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">beforesuffix</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L606-L614">lualibs-lpeg.lua#L606-L614</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegcontainsws">lpeg.containsws</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">containsws</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L1185-L1194">lualibs-lpeg.lua#L1185-L1194</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegcounter">lpeg.counter</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">counter</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L652-L662">lualibs-lpeg.lua#L652-L662</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegendstripper">lpeg.endstripper</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">endstripper</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L501-L503">lualibs-lpeg.lua#L501-L503</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegfinder">lpeg.finder</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">finder</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L548-L576">lualibs-lpeg.lua#L548-L576</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegfrontstripper">lpeg.frontstripper</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">frontstripper</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L497-L499">lualibs-lpeg.lua#L497-L499</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpeginstringchecker">lpeg.instringchecker</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">instringchecker</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L308-L313">lualibs-lpeg.lua#L308-L313</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegis_lpeg">lpeg.is_lpeg</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">is_lpeg</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L675-L677">lualibs-lpeg.lua#L675-L677</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegoneof">lpeg.oneof</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">oneof</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L679-L689">lualibs-lpeg.lua#L679-L689</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegpcode">lpeg.pcode</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">pcode</span><span class="p">()</span>
+</span></code></pre></div>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegprint">lpeg.print</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">print</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L44">lualibs-lpeg.lua#L44</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegptree">lpeg.ptree</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">ptree</span><span class="p">()</span>
+</span></code></pre></div>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegsetutfcasers">lpeg.setutfcasers</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">setutfcasers</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L846-L849">lualibs-lpeg.lua#L846-L849</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegsplitter">lpeg.splitter</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">splitter</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L323-L329">lualibs-lpeg.lua#L323-L329</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library/String_manipulation">ConTeXt and Lua programming/Extensions to the Lua IO library/String manipulation</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegsplitat">lpeg.splitat</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">splitat</span><span class="p">(</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nv">delimiter</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">,</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nv">single</span><span class="p">:</span><span class="w"> </span><span class="py">boolean</span><span class="err">?</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">Pattern</span>
+</span></code></pre></div>
+<p>Return a pattern that produces a list of substrings delimited by delimiter (which can be a pattern or a string).</p>
+<p>The optional boolean single determines whether the string should be split only at the first match.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[[</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="s">Number twenty-three. The shin.</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="s">Number twenty-four. Reginald Maudling&#39;s shin.</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="s">Number twenty-five. The brain.</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="s">Number twenty-six. Magaret Thatcher&#39;s brain.</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="s">Number twenty-seven. More naughty bits.</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="s">]]</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="kd">local</span><span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">lpeg</span><span class="p">.</span><span class="nf">splitat</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">):</span><span class="nf">match</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="kr">for</span><span class="w"> </span><span class="nv">n</span><span class="p">,</span><span class="w"> </span><span class="nv">element</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">  </span><span class="nv">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">element</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nv">element</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nv">element</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">  </span><span class="nb">io.write</span><span class="p">(</span><span class="nv">n</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;: &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">element</span><span class="p">)</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="kr">end</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library/String_manipulation">ConTeXt and Lua programming/Extensions to the Lua IO library/String manipulation</a></li>
+</ul>
+<h3 id="lpegfirstofsplit">lpeg.firstofsplit</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">firstofsplit</span><span class="p">(</span><span class="nv">separator</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">Pattern</span>
+</span></code></pre></div>
+<p>Return a pattern that matches the substring until the first occurrence of separator</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="s2">&quot;menu = spam, spam, spam, spam, spam, baked beans, spam, spam and spam&quot;</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="nb">print</span><span class="p">(</span><span class="nv">lpeg</span><span class="p">.</span><span class="nf">firstofsplit</span><span class="p">(</span><span class="s2">&quot; = &quot;</span><span class="p">):</span><span class="nf">match</span><span class="p">(</span><span class="nv">str</span><span class="p">))</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L584-L592">lualibs-lpeg.lua#L584-L592</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library/String_manipulation">ConTeXt and Lua programming/Extensions to the Lua IO library/String manipulation</a></li>
+</ul>
+<h3 id="lpegsecondofsplit">lpeg.secondofsplit</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">secondofsplit</span><span class="p">(</span><span class="nv">separator</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">Pattern</span>
+</span></code></pre></div>
+<p>Match the whole rest after that regardless of any further occurrences of separator.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="s2">&quot;menu = spam, spam, spam, spam, spam, baked beans, spam, spam and spam&quot;</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="nb">print</span><span class="p">(</span><span class="nv">lpeg</span><span class="p">.</span><span class="nf">secondofsplit</span><span class="p">(</span><span class="s2">&quot; = &quot;</span><span class="p">):</span><span class="nf">match</span><span class="p">(</span><span class="nv">str</span><span class="p">))</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L594-L602">lualibs-lpeg.lua#L594-L602</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library/String_manipulation">ConTeXt and Lua programming/Extensions to the Lua IO library/String manipulation</a></li>
+</ul>
+<h3 id="lpegsplit">lpeg.split</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">split</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L344-L359">lualibs-lpeg.lua#L344-L359</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegcheckedsplit">lpeg.checkedsplit</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">checkedsplit</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L428-L437">lualibs-lpeg.lua#L428-L437</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegstripper">lpeg.stripper</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">stripper</span><span class="p">(</span><span class="nv">pattern</span><span class="p">:</span><span class="w"> </span><span class="err">(</span><span class="py">string</span><span class="o">|</span><span class="nv">Pattern</span><span class="p">))</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">Pattern</span>
+</span></code></pre></div>
+<p>Return a pattern that removes either, if the argument is a string, all occurrences of every character of that string or, if the argument is a pattern, all occurrences of that pattern.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">  </span><span class="s2">&quot;A dromedary has one hump and a camel has a refreshment car, buffet, and ticket collector.&quot;</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="nb">print</span><span class="p">(</span><span class="nv">lpeg</span><span class="p">.</span><span class="nf">stripper</span><span class="p">(</span><span class="s2">&quot;aeiou&quot;</span><span class="p">):</span><span class="nf">match</span><span class="p">(</span><span class="nv">str</span><span class="p">))</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="nb">print</span><span class="p">(</span><span class="nv">lpeg</span><span class="p">.</span><span class="nf">stripper</span><span class="p">(</span><span class="nv">lpeg</span><span class="p">.</span><span class="nf">P</span><span class="p">(</span><span class="s2">&quot;camel &quot;</span><span class="p">)):</span><span class="nf">match</span><span class="p">(</span><span class="nv">str</span><span class="p">))</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L469-L480">lualibs-lpeg.lua#L469-L480</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library/String_manipulation">ConTeXt and Lua programming/Extensions to the Lua IO library/String manipulation</a></li>
+</ul>
+<p>@see lpeg.keeper</p>
+<h3 id="lpegkeeper">lpeg.keeper</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">keeper</span><span class="p">(</span><span class="nv">pattern</span><span class="p">:</span><span class="w"> </span><span class="err">(</span><span class="py">string</span><span class="o">|</span><span class="nv">Pattern</span><span class="p">))</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">Pattern</span>
+</span></code></pre></div>
+<p>Remove anything but the string or pattern respectively. Note: <code>string.keeper</code> does not seem to work as expected with patterns consisting of more than one byte, e.g. lpeg.P("camel").</p>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L484-L495">lualibs-lpeg.lua#L484-L495</a></li>
+</ul>
+<p>@see lpeg.stripper</p>
+<h3 id="lpegreplacer">lpeg.replacer</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">replacer</span><span class="p">(</span><span class="nv">table</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">[][])</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">Pattern</span>
+</span></code></pre></div>
+<p>Returns a pattern that substitutes any first elements of a given pair by its second element.</p>
+<p>The latter can be a string, a hashtable, or a function (whatever fits with lpeg.Cs).</p>
+<p>Note: Choose the order of elements in table with care. Due to LPEG's matching the leftmost element of disjunction first it might turn out to be as crucial as in the following example:</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Luxury Yacht&quot;</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">rep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">  </span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Luxury&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Throatwobbler&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">  </span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Yacht&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Mangrove&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="p">}</span>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="nb">print</span><span class="p">(</span>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="w">  </span><span class="s2">&quot;My name is spelled “&quot;</span>
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="w">    </span><span class="o">..</span><span class="w"> </span><span class="nv">str</span>
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="w">    </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;”, but it&#39;s pronounced “&quot;</span>
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="w">    </span><span class="o">..</span><span class="w"> </span><span class="nv">lpeg</span><span class="p">.</span><span class="nf">replacer</span><span class="p">(</span><span class="nv">rep</span><span class="p">):</span><span class="nf">match</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span>
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="w">    </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;”.&quot;</span>
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="p">)</span>
+</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>
+</span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;aaababaaba&quot;</span>
+</span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a><span class="kd">local</span><span class="w"> </span><span class="nv">rep1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-33-18"><a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;x&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-33-19"><a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;aa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-33-20"><a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a><span class="p">}</span>
+</span><span id="__span-33-21"><a id="__codelineno-33-21" name="__codelineno-33-21" href="#__codelineno-33-21"></a>
+</span><span id="__span-33-22"><a id="__codelineno-33-22" name="__codelineno-33-22" href="#__codelineno-33-22"></a><span class="kd">local</span><span class="w"> </span><span class="nv">rep2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-33-23"><a id="__codelineno-33-23" name="__codelineno-33-23" href="#__codelineno-33-23"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;aa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-33-24"><a id="__codelineno-33-24" name="__codelineno-33-24" href="#__codelineno-33-24"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;x&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-33-25"><a id="__codelineno-33-25" name="__codelineno-33-25" href="#__codelineno-33-25"></a><span class="p">}</span>
+</span><span id="__span-33-26"><a id="__codelineno-33-26" name="__codelineno-33-26" href="#__codelineno-33-26"></a>
+</span><span id="__span-33-27"><a id="__codelineno-33-27" name="__codelineno-33-27" href="#__codelineno-33-27"></a><span class="nb">print</span><span class="p">(</span><span class="nv">lpeg</span><span class="p">.</span><span class="nf">replacer</span><span class="p">(</span><span class="nv">rep1</span><span class="p">):</span><span class="nf">match</span><span class="p">(</span><span class="nv">str</span><span class="p">))</span>
+</span><span id="__span-33-28"><a id="__codelineno-33-28" name="__codelineno-33-28" href="#__codelineno-33-28"></a><span class="nb">print</span><span class="p">(</span><span class="nv">lpeg</span><span class="p">.</span><span class="nf">replacer</span><span class="p">(</span><span class="nv">rep2</span><span class="p">):</span><span class="nf">match</span><span class="p">(</span><span class="nv">str</span><span class="p">))</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L510-L543">lualibs-lpeg.lua#L510-L543</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library/String_manipulation">ConTeXt and Lua programming/Extensions to the Lua IO library/String manipulation</a></li>
+</ul>
+<h3 id="lpegtimes">lpeg.times</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">times</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L1068-L1070">lualibs-lpeg.lua#L1068-L1070</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegtsplitat">lpeg.tsplitat</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">tsplitat</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L361-L368">lualibs-lpeg.lua#L361-L368</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegtsplitter">lpeg.tsplitter</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">tsplitter</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L331-L337">lualibs-lpeg.lua#L331-L337</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegutfchartabletopattern">lpeg.utfchartabletopattern</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">utfchartabletopattern</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L895-L971">lualibs-lpeg.lua#L895-L971</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="lpegutfreplacer">lpeg.utfreplacer</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">lpeg</span><span class="p">.</span><span class="nf">utfreplacer</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-lpeg.lua#L975-L980">lualibs-lpeg.lua#L975-L980</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/lpeg.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["quick-links", "navigation", "search", "toc", "fullscreen", "bookmarks", "tabs", "code", "edit-on-github", "language-selector", "code", "cover", "footer", "social-share", "theme-switcher"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

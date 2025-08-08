@@ -1,0 +1,1779 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../inspect/">
+      
+      
+        <link rel="next" href="../lfs/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>io - Lualibs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#global-io" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Lualibs" class="md-header__button md-logo" aria-label="Lualibs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lualibs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              io
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Lualibs" class="md-nav__button md-logo" aria-label="Lualibs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Lualibs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Types
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/CharacterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    alias CharacterGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/StriplinePattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    alias StriplinePattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/Module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    class Module
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/Url/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    class Url
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Globals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Globals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../boolean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    boolean
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dir
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gzip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gzip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inspect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    inspect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    io
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    io
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ioreadall" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.readall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioloaddata" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.loaddata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iocopydata" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.copydata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iosavedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.savedata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioloadlines" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.loadlines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioloadchunk" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.loadchunk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioexists" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.exists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iosize" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ionoflines" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.noflines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iocharacters" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.characters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iobytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.bytes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioask" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.ask
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioreadnumber" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.readnumber
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioreadnumber_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.readnumber
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioreadstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.readstring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioreadstring_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.readstring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lfs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lualibs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lualibs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../number/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    number
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optionalrequire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    optionalrequire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    os
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    package
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setinspector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    setinspector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    statistics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toboolean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    toboolean
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trackers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    trackers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../url/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    url
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    utf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    utilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ioreadall" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.readall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioloaddata" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.loaddata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iocopydata" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.copydata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iosavedata" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.savedata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioloadlines" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.loadlines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioloadchunk" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.loadchunk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioexists" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.exists
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iosize" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.size
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ionoflines" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.noflines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iocharacters" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.characters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iobytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.bytes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioask" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.ask
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioreadnumber" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.readnumber
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioreadnumber_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.readnumber
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioreadstring" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.readstring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ioreadstring_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      io.readstring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="global-io">global io</h1>
+<p>https://github.com/latex3/lualibs/blob/main/lualibs-io.lua</p>
+<hr />
+<h2 id="methods">methods</h2>
+<hr />
+<h3 id="ioreadall">io.readall</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">readall</span><span class="p">(</span><span class="nv">f</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L56-L65">lualibs-io.lua#L56-L65</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/io.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="ioloaddata">io.loaddata</h3>
+<hr />
+<p><div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">loaddata</span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nv">filename</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nv">textmode</span><span class="p">:</span><span class="w"> </span><span class="py">any</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">any</span>
+</span></code></pre></div>
+@param <code>textmode</code> - non-nil|false triggers non-binary mode in certain operating systems.</p>
+<p>A wrapper for <code>io.open</code>. Automatically supplies the <code>r</code> flag and handles opening and closing, returns the complete content of file <code>filename</code>. The optional argument <code>textmode</code> when non-nil|false triggers non-binary mode in certain operating systems.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">io.open</span><span class="p">(</span><span class="s2">&quot;./text.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nv">f</span><span class="p">:</span><span class="nf">write</span><span class="p">(</span><span class="s2">&quot;Some Text.&quot;</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nv">f</span><span class="p">:</span><span class="nf">close</span><span class="p">()</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kr">end</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kd">local</span><span class="w"> </span><span class="nv">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">io</span><span class="p">.</span><span class="nf">loaddata</span><span class="p">(</span><span class="s2">&quot;./text.txt&quot;</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nb">io.write</span><span class="p">(</span><span class="nv">text</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L69-L82">lualibs-io.lua#L69-L82</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="iocopydata">io.copydata</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">copydata</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nv">source</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nv">target</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nv">action</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L126-L148">lualibs-io.lua#L126-L148</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/io.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="iosavedata">io.savedata</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">savedata</span><span class="p">(</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nv">filename</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nv">data</span><span class="p">:</span><span class="w"> </span><span class="err">(</span><span class="py">string</span><span class="o">|</span><span class="nv">string</span><span class="p">[]</span><span class="o">|</span><span class="nf">fun</span><span class="p">(</span><span class="nv">object</span><span class="p">:</span><span class="w"> </span><span class="py">file</span><span class="o">*</span><span class="p">)),</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nv">separator</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="err">?</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nv">append</span><span class="p">:</span><span class="w"> </span><span class="py">any</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">boolean</span>
+</span></code></pre></div>
+<p>Writes <code>data</code> to file <code>filename</code>. Handles opening and closing routines automatically. <code>data</code> can be generic data, a list or a function. Lists are joined prior to write, using the optional separator as separator (nice for CSV output). Functions are applied to the file object.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Some Text.&quot;</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nv">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">text</span><span class="p">:</span><span class="nf">gsub</span><span class="p">(</span><span class="s2">&quot;.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot; and again &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">text</span><span class="p">:</span><span class="nf">lower</span><span class="p">()</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nv">io</span><span class="p">.</span><span class="nf">savedata</span><span class="p">(</span><span class="s2">&quot;./moretext.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">text</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nb">os.execute</span><span class="p">(</span><span class="s2">&quot;cat ./moretext.txt&quot;</span><span class="p">)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kd">local</span><span class="w"> </span><span class="nv">sometable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;spam&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;spam&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;spam&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;baked beans&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;spam&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nv">io</span><span class="p">.</span><span class="nf">savedata</span><span class="p">(</span><span class="s2">&quot;./moretext.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">sometable</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nb">os.execute</span><span class="p">(</span><span class="s2">&quot;cat ./moretext.txt &amp;&amp; echo &#39;</span><span class="se">\n</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="kd">local</span><span class="w"> </span><span class="kr">function</span><span class="w"> </span><span class="nf">weird_write</span><span class="p">(</span><span class="nv">obj</span><span class="p">)</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="kr">do</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">      </span><span class="nv">obj</span><span class="p">:</span><span class="nf">write</span><span class="p">(</span><span class="s2">&quot;But cool. &quot;</span><span class="p">)</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="kr">else</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">      </span><span class="nv">obj</span><span class="p">:</span><span class="nf">write</span><span class="p">(</span><span class="s2">&quot;Weird. &quot;</span><span class="p">)</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="kr">end</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span><span class="kr">end</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">  </span><span class="nv">obj</span><span class="p">:</span><span class="nf">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="kr">end</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="nv">io</span><span class="p">.</span><span class="nf">savedata</span><span class="p">(</span><span class="s2">&quot;./weirdtext.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">weird_write</span><span class="p">)</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="nb">os.execute</span><span class="p">(</span><span class="s2">&quot;cat ./weirdtext.txt&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L150-L169">lualibs-io.lua#L150-L169</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="ioloadlines">io.loadlines</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">loadlines</span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nv">filename</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nv">n</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L179-L235">lualibs-io.lua#L179-L235</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/io.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="ioloadchunk">io.loadchunk</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">loadchunk</span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nv">filename</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nv">n</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L239-L248">lualibs-io.lua#L239-L248</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/io.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="ioexists">io.exists</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="nv">filename</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">boolean</span>
+</span></code></pre></div>
+<p>Tests for file <code>filename</code>'s existence and returns a boolean accordingly.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">print</span><span class="p">(</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nv">io</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="s2">&quot;moretext.txt&quot;</span><span class="p">)</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s2">&quot;Yes, you&#39;re right (as usual)!&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;No, you&#39;re wasting your time, Sir!&quot;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L250-L258">lualibs-io.lua#L250-L258</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="iosize">io.size</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">size</span><span class="p">(</span><span class="nv">filename</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">integer</span>
+</span></code></pre></div>
+<p>Returns the byte count of file <code>filename</code> or 0 if the file is not found.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">check1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">io</span><span class="p">.</span><span class="nf">size</span><span class="p">(</span><span class="s2">&quot;moretext.txt&quot;</span><span class="p">)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">local</span><span class="w"> </span><span class="nv">check2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">tonumber</span><span class="p">(</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nb">io.popen</span><span class="p">([[</span><span class="nv">du</span><span class="w"> </span><span class="o">-</span><span class="nv">b</span><span class="w"> </span><span class="nv">moretext</span><span class="p">.</span><span class="py">txt</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nv">sed</span><span class="w"> </span><span class="o">-</span><span class="nv">e</span><span class="w"> </span><span class="s1">&#39;s/^</span><span class="err">\</span><span class="s1">([0-9]*</span><span class="err">\</span><span class="s1">).*/</span><span class="se">\1</span><span class="s1">/&#39;</span><span class="p">]]):</span><span class="nf">read</span><span class="p">(</span><span class="s2">&quot;*all&quot;</span><span class="p">)</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">)</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nb">io.write</span><span class="p">(</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="s2">&quot;I counted &quot;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="o">..</span><span class="w"> </span><span class="nv">check1</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot; bytes, and it&#39;s got &quot;</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="o">..</span><span class="w"> </span><span class="nv">check2</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot; bytes according to ‘du’.</span><span class="se">\n</span><span class="s2">Therefore &quot;</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="p">)</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="nb">io.write</span><span class="p">(</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">  </span><span class="nv">check1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">check2</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s2">&quot;the size info should be reasonably accurate.</span><span class="se">\n</span><span class="s2">&quot;</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;something&#39;s thoroughly wrong.</span><span class="se">\n</span><span class="s2">&quot;</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L260-L269">lualibs-io.lua#L260-L269</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="ionoflines">io.noflines</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">noflines</span><span class="p">(</span><span class="nv">object</span><span class="p">:</span><span class="w"> </span><span class="py">file</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">line_count</span><span class="w"> </span><span class="nv">integer</span>
+</span></code></pre></div>
+<p>@return <code>line_count</code> - The line count of a file object <code>object</code>.</p>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/io.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<p>Returns the line count of a file object <code>object</code>.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">io.popen</span><span class="p">(</span><span class="s2">&quot;dmesg&quot;</span><span class="p">)</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="kd">local</span><span class="w"> </span><span class="nv">infolength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">io</span><span class="p">.</span><span class="nf">noflines</span><span class="p">(</span><span class="nv">f</span><span class="p">)</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nv">f</span><span class="p">:</span><span class="nf">close</span><span class="p">()</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There&#39;s &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">infolength</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot; lines in the kernel ring buffer.&quot;</span><span class="p">)</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="kr">end</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L271-L290">lualibs-io.lua#L271-L290</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="iocharacters">io.characters</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">characters</span><span class="p">(</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nv">object</span><span class="p">:</span><span class="w"> </span><span class="py">file</span><span class="o">*</span><span class="p">,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nv">group</span><span class="p">:</span><span class="w"> </span><span class="py">CharacterGroup</span><span class="err">?</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nf">fun</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">string</span><span class="p">,</span><span class="nv">string</span><span class="err">?</span><span class="p">,</span><span class="nv">string</span><span class="err">?</span><span class="p">,</span><span class="nv">string</span><span class="err">?</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Returns an iterator over the one-byte characters of a file object <code>object</code>. The optional argument <code>group</code> accepts a signed integer which determines the number and byte order of the characters returned simultaneously. Possible values are -4, -2, 1, 2, and 4. Negative values result in the order of the characters to be reversed.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">io.popen</span><span class="p">(</span><span class="s2">&quot;cat ./moretext.txt&quot;</span><span class="p">)</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">char1</span><span class="p">,</span><span class="w"> </span><span class="nv">char2</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">io</span><span class="p">.</span><span class="nf">characters</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="nb">io.write</span><span class="p">(</span><span class="nb">string.format</span><span class="p">(</span><span class="s2">&quot;“%s”, “%s”</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">char1</span><span class="p">,</span><span class="w"> </span><span class="nv">char2</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">))</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="kr">end</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="nv">f</span><span class="p">:</span><span class="nf">close</span><span class="p">()</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="kr">end</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">io.open</span><span class="p">(</span><span class="s2">&quot;./moretext.txt&quot;</span><span class="p">)</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="kr">if</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">char1</span><span class="p">,</span><span class="w"> </span><span class="nv">char2</span><span class="p">,</span><span class="w"> </span><span class="nv">char3</span><span class="p">,</span><span class="w"> </span><span class="nv">char4</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">io</span><span class="p">.</span><span class="nf">characters</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span><span class="nb">io.write</span><span class="p">(</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">      </span><span class="nb">string.format</span><span class="p">(</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">        </span><span class="s2">&quot;1: “%s”, 2: “%s”, 3: “%s”, 4: “%s”</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">        </span><span class="nv">char1</span><span class="p">,</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">        </span><span class="nv">char2</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">        </span><span class="nv">char3</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">        </span><span class="nv">char4</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">      </span><span class="p">)</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">  </span><span class="kr">end</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">  </span><span class="nv">f</span><span class="p">:</span><span class="nf">close</span><span class="p">()</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="kr">end</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L317-L321">lualibs-io.lua#L317-L321</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="iobytes">io.bytes</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">bytes</span><span class="p">(</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nv">object</span><span class="p">:</span><span class="w"> </span><span class="py">file</span><span class="o">*</span><span class="p">,</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nv">group</span><span class="p">:</span><span class="w"> </span><span class="py">CharacterGroup</span><span class="err">?</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nf">fun</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">string</span><span class="p">,</span><span class="nv">string</span><span class="err">?</span><span class="p">,</span><span class="nv">string</span><span class="err">?</span><span class="p">,</span><span class="nv">string</span><span class="err">?</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Returns an iterator over the bytes of a file <code>object</code>. As with io.characters, the optional argument <code>group</code> specifies the number and order of the bytes returned simultaneously. If there fewer bytes left at the end of a file than the absolute of <code>group</code>, then the remainder is ignored. Thus to process the whole file make sure that its size is a multiple of <code>group</code>.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">io.open</span><span class="p">(</span><span class="s2">&quot;./moretext.txt&quot;</span><span class="p">)</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kr">if</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="nv">char1</span><span class="p">,</span><span class="w"> </span><span class="nv">char2</span><span class="p">,</span><span class="w"> </span><span class="nv">char3</span><span class="p">,</span><span class="w"> </span><span class="nv">char4</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nv">io</span><span class="p">.</span><span class="nf">bytes</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nb">io.write</span><span class="p">(</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">      </span><span class="nb">string.format</span><span class="p">(</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">        </span><span class="s2">&quot;1: “%s”, 2: “%s”, 3: “%s”, 4: “%s”</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="nv">char1</span><span class="p">,</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">        </span><span class="nv">char2</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">        </span><span class="nv">char3</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">        </span><span class="nv">char4</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">      </span><span class="p">)</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">    </span><span class="p">)</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">  </span><span class="kr">end</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">  </span><span class="nv">f</span><span class="p">:</span><span class="nf">close</span><span class="p">()</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="kr">end</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L368-L374">lualibs-io.lua#L368-L374</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="ioask">io.ask</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">ask</span><span class="p">(</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nv">question</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">,</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nv">default</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="err">?</span><span class="p">,</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nv">options</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">[]</span><span class="err">?</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Interrupts the program flow to wait for user input. Prints the string <code>question</code> to stdout and returns the string given by the user. If a string <code>default</code> is given, it is printed in brackets and returned if the user input is empty. <code>options</code> has to be a list of valid input strings which are then printed in brackets as well; no other strings are accepted if <code>options</code> is specified.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nv">default</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;An African or European swallow?&quot;</span><span class="p">,</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nv">other</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;http://www.style.org/unladenswallow/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;42&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">}</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="kd">local</span><span class="w"> </span><span class="nv">someanswer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">io</span><span class="p">.</span><span class="nf">ask</span><span class="p">(</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">  </span><span class="s2">&quot;What is the air speed velocity of an unladen swallow?&quot;</span><span class="p">,</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="nv">options</span><span class="p">.</span><span class="py">default</span><span class="p">,</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span><span class="nv">options</span><span class="p">.</span><span class="py">other</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="p">)</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="nb">print</span><span class="p">(</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">  </span><span class="nv">someanswer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">options</span><span class="p">.</span><span class="py">default</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">      </span><span class="ow">and</span><span class="w"> </span><span class="s2">&quot;I don&#39;t know that! /He is thrown into the chasm./&quot;</span>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">    </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;OK, off you go!&quot;</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L376-L408">lualibs-io.lua#L376-L408</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="ioreadnumber">io.readnumber</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">readnumber</span><span class="p">(</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nv">object</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">,</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="nv">offset</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span><span class="p">,</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span><span class="nv">count</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">integer</span>
+</span></code></pre></div>
+<p>Reads <code>count</code> next bytes from a file <code>object</code>, optionally starting at byte <code>offset</code>. The bytes are treated as representing a single integer which is then returned in base 10. Valid byte counts are 1, 2, 4, 8, and 12; throws an error when there are fewer bytes left from the current position to the end of file than count.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">io</span><span class="p">.</span><span class="nf">savedata</span><span class="p">(</span><span class="s2">&quot;nums.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;</span><span class="se">\001\001\001\001\002\002\002\002\003\003\003\003</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">io.open</span><span class="p">(</span><span class="s2">&quot;nums.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="kr">if</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="nv">io</span><span class="p">.</span><span class="nf">readnumber</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="nv">io</span><span class="p">.</span><span class="nf">readnumber</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="nv">io</span><span class="p">.</span><span class="nf">readnumber</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="nv">io</span><span class="p">.</span><span class="nf">readnumber</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">  </span><span class="nv">f</span><span class="p">:</span><span class="nf">close</span><span class="p">()</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="kr">end</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L410-L448">lualibs-io.lua#L410-L448</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="ioreadnumber_1">io.readnumber</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">readnumber</span><span class="p">(</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nv">object</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">,</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="nv">count</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">integer</span>
+</span></code></pre></div>
+<p>Reads <code>count</code> next bytes from a file <code>object</code>, optionally starting at byte <code>offset</code>. The bytes are treated as representing a single integer which is then returned in base 10. Valid byte counts are 1, 2, 4, 8, and 12; throws an error when there are fewer bytes left from the current position to the end of file than count.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">io</span><span class="p">.</span><span class="nf">savedata</span><span class="p">(</span><span class="s2">&quot;nums.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;</span><span class="se">\001\001\001\001\002\002\002\002\003\003\003\003</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="kd">local</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">io.open</span><span class="p">(</span><span class="s2">&quot;nums.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="kr">if</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="nv">io</span><span class="p">.</span><span class="nf">readnumber</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="nv">io</span><span class="p">.</span><span class="nf">readnumber</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="nv">io</span><span class="p">.</span><span class="nf">readnumber</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">  </span><span class="nb">print</span><span class="p">(</span><span class="nv">io</span><span class="p">.</span><span class="nf">readnumber</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">  </span><span class="nv">f</span><span class="p">:</span><span class="nf">close</span><span class="p">()</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="kr">end</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L410-L448">lualibs-io.lua#L410-L448</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="ioreadstring">io.readstring</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">readstring</span><span class="p">(</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="nv">object</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">,</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span><span class="nv">offset</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span><span class="p">,</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">  </span><span class="nv">length</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">string</span>
+</span></code></pre></div>
+<p>Returns the next <code>length</code> bytes from <code>object</code>, starting from the current position or, optionally, the <code>byte</code> offset.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">io.open</span><span class="p">(</span><span class="s2">&quot;text.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="kd">local</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">io</span><span class="p">.</span><span class="nf">readstring</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="nb">print</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="kr">if</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">  </span><span class="nv">f</span><span class="p">:</span><span class="nf">close</span><span class="p">()</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="kr">end</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L452-L459">lualibs-io.lua#L452-L459</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+<h3 id="ioreadstring_1">io.readstring</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">io</span><span class="p">.</span><span class="nf">readstring</span><span class="p">(</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="nv">object</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">,</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="nv">length</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">string</span>
+</span></code></pre></div>
+<p>Returns the next <code>length</code> bytes from <code>object</code>, starting from the current position or, optionally, the <code>byte</code> offset.</p>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kd">local</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">io.open</span><span class="p">(</span><span class="s2">&quot;text.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="kd">local</span><span class="w"> </span><span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">io</span><span class="p">.</span><span class="nf">readstring</span><span class="p">(</span><span class="nv">f</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="nb">print</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="kr">if</span><span class="w"> </span><span class="nv">f</span><span class="w"> </span><span class="kr">then</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="w">  </span><span class="nv">f</span><span class="p">:</span><span class="nf">close</span><span class="p">()</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="kr">end</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-io.lua#L452-L459">lualibs-io.lua#L452-L459</a></li>
+<li>ConTeXt wiki: <a href="https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library">ConTeXt and Lua programming/Extensions to the Lua IO library</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["quick-links", "navigation", "search", "toc", "fullscreen", "bookmarks", "tabs", "code", "edit-on-github", "language-selector", "code", "cover", "footer", "social-share", "theme-switcher"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

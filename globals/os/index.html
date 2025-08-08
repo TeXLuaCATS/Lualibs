@@ -1,0 +1,1807 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../optionalrequire/">
+      
+      
+        <link rel="next" href="../package/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>os - Lualibs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#global-os" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Lualibs" class="md-header__button md-logo" aria-label="Lualibs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lualibs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              os
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Lualibs" class="md-nav__button md-logo" aria-label="Lualibs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Lualibs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Types
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/CharacterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    alias CharacterGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/StriplinePattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    alias StriplinePattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/Module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    class Module
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/Url/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    class Url
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Globals
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Globals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../boolean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    boolean
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dir
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gzip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gzip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inspect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    inspect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    io
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lfs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lualibs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    lualibs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../number/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    number
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optionalrequire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    optionalrequire
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    os
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    os
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#osresultof" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.resultof
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oslaunch" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.launch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.runtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ostimezone" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.timezone
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osuuid" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.uuid
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospipeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.pipeto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osfulltime" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.fulltime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oslocaltime" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.localtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osconverttime" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.converttime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ostoday" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.today
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osnow" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.now
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oswhich" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.which
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oswhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.where
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osisleapyear" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.isleapyear
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osnofdays" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.nofdays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osweekday" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.weekday
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osvaliddate" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.validdate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ossetexitcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.setexitcode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osexit" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.exit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      fields
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#osplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oslibsuffix" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.libsuffix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osbinsuffix" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.binsuffix
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    package
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setinspector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    setinspector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    statistics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toboolean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    toboolean
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trackers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    trackers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../url/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    url
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    utf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    utilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#osresultof" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.resultof
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oslaunch" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.launch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.runtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ostimezone" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.timezone
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osuuid" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.uuid
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospipeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.pipeto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osfulltime" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.fulltime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oslocaltime" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.localtime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osconverttime" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.converttime
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ostoday" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.today
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osnow" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.now
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oswhich" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.which
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oswhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.where
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osisleapyear" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.isleapyear
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osnofdays" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.nofdays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osweekday" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.weekday
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osvaliddate" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.validdate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.date
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ossetexitcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.setexitcode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osexit" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.exit
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      fields
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#osplatform" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oslibsuffix" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.libsuffix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#osbinsuffix" class="md-nav__link">
+    <span class="md-ellipsis">
+      os.binsuffix
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="global-os">global os</h1>
+<hr />
+<h2 id="methods">methods</h2>
+<hr />
+<h3 id="osresultof">os.resultof</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">resultof</span><span class="p">(</span><span class="nv">command</span><span class="p">)</span>
+</span></code></pre></div>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="oslaunch">os.launch</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">launch</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L246-L251">lualibs-os.lua#L246-L251</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="osruntime">os.runtime</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">runtime</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L262-L264">lualibs-os.lua#L262-L264</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="ostimezone">os.timezone</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">timezone</span><span class="p">(</span><span class="nv">difference</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L453-L469">lualibs-os.lua#L453-L469</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="osuuid">os.uuid</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">uuid</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">uuid</span><span class="w"> </span><span class="nv">string</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L423-L431">lualibs-os.lua#L423-L431</a></li>
+</ul>
+<h3 id="ospipeto">os.pipeto</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">pipeto</span><span class="p">(</span><span class="nv">command</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L236-L238">lualibs-os.lua#L236-L238</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="osfulltime">os.fulltime</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">fulltime</span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nv">t</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nv">default</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L478-L492">lualibs-os.lua#L478-L492</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="oslocaltime">os.localtime</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">localtime</span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nv">t</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nv">default</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L500-L514">lualibs-os.lua#L500-L514</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="osconverttime">os.converttime</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">converttime</span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nv">t</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nv">default</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L516-L523">lualibs-os.lua#L516-L523</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="ostoday">os.today</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">today</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">osdate</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L527-L529">lualibs-os.lua#L527-L529</a></li>
+</ul>
+<h3 id="osnow">os.now</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">now</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">string</span>
+</span></code></pre></div>
+<p>@return  - for example <code>2021-10-22 08:22:54</code>.
+😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<p>Return the UTC time without timezone, for example <code>2021-10-22 08:22:54</code>.</p>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L533-L535">lualibs-os.lua#L533-L535</a></li>
+</ul>
+<h3 id="oswhich">os.which</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">which</span><span class="p">(</span><span class="nv">filename</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">string</span>
+</span></code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">print</span><span class="p">(</span><span class="nv">os</span><span class="p">.</span><span class="nf">which</span><span class="p">(</span><span class="s2">&quot;inkscape.exe&quot;</span><span class="p">))</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">print</span><span class="p">(</span><span class="nv">os</span><span class="p">.</span><span class="nf">which</span><span class="p">(</span><span class="s2">&quot;inkscape&quot;</span><span class="p">))</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">print</span><span class="p">(</span><span class="nv">os</span><span class="p">.</span><span class="nf">which</span><span class="p">(</span><span class="s2">&quot;gs.exe&quot;</span><span class="p">))</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nb">print</span><span class="p">(</span><span class="nv">os</span><span class="p">.</span><span class="nf">which</span><span class="p">(</span><span class="s2">&quot;ps2pdf&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L543-L564">lualibs-os.lua#L543-L564</a></li>
+</ul>
+<p>@see os.where</p>
+<h3 id="oswhere">os.where</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="nv">filename</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">string</span>
+</span></code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">print</span><span class="p">(</span><span class="nv">os</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">&quot;inkscape.exe&quot;</span><span class="p">))</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">print</span><span class="p">(</span><span class="nv">os</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">&quot;inkscape&quot;</span><span class="p">))</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nb">print</span><span class="p">(</span><span class="nv">os</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">&quot;gs.exe&quot;</span><span class="p">))</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="nb">print</span><span class="p">(</span><span class="nv">os</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">&quot;ps2pdf&quot;</span><span class="p">))</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L543-L564">lualibs-os.lua#L543-L564</a></li>
+</ul>
+<p>@see os.which</p>
+<h3 id="osisleapyear">os.isleapyear</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">isleapyear</span><span class="p">(</span><span class="nv">year</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="nv">boolean</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L595-L599">lualibs-os.lua#L595-L599</a></li>
+</ul>
+<h3 id="osnofdays">os.nofdays</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">nofdays</span><span class="p">(</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nv">year</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span><span class="p">,</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nv">month</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span><span class="err">?</span><span class="p">,</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="nv">day</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span><span class="err">?</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">number_of_days</span><span class="w"> </span><span class="nv">integer</span>
+</span></code></pre></div>
+<p>@return <code>number_of_days</code> - Calculates the number of days of a month if the parameter <code>day</code> is missing. Calculates the number of days of the year if the parameters <code>month</code> and <code>day</code> are missing.</p>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<p>Calculate the number of days.</p>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L619-L633">lualibs-os.lua#L619-L633</a></li>
+</ul>
+<h3 id="osweekday">os.weekday</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">weekday</span><span class="p">(</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nv">day</span><span class="p">,</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nv">month</span><span class="p">,</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nv">year</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L637-L639">lualibs-os.lua#L637-L639</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="osvaliddate">os.validdate</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">validdate</span><span class="p">(</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nv">year</span><span class="p">,</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nv">month</span><span class="p">,</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nv">day</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L641-L658">lualibs-os.lua#L641-L658</a></li>
+</ul>
+<p>😱 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua">Types</a> incomplete or incorrect? 🙏 <a href="https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls">Please contribute!</a></p>
+<h3 id="osdate">os.date</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">date</span><span class="p">(</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nv">format</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="err">?</span><span class="p">,</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nv">time</span><span class="p">:</span><span class="w"> </span><span class="py">integer</span><span class="err">?</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">  </span><span class="p">(</span><span class="nv">string</span><span class="o">|</span><span class="nv">osdate</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Return a string or a table containing date and time, formatted according to the given string format.</p>
+<p>If the parameter <code>format</code> is missing the format string <code>%Y-%m-%d %H:%M</code> is used.</p>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L660-L666">lualibs-os.lua#L660-L666</a></li>
+</ul>
+<h3 id="ossetexitcode">os.setexitcode</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">setexitcode</span><span class="p">(</span><span class="nv">code</span><span class="p">:</span><span class="w"> </span><span class="err">(</span><span class="py">integer</span><span class="o">|</span><span class="nv">string</span><span class="p">))</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L675-L677">lualibs-os.lua#L675-L677</a></li>
+</ul>
+<p>@see os.exit</p>
+<h3 id="osexit">os.exit</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kr">function</span><span class="w"> </span><span class="nc">os</span><span class="p">.</span><span class="nf">exit</span><span class="p">(</span><span class="nv">code</span><span class="p">:</span><span class="w"> </span><span class="err">(</span><span class="py">integer</span><span class="o">|</span><span class="nv">string</span><span class="p">)</span><span class="err">?</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L679-L687">lualibs-os.lua#L679-L687</a></li>
+</ul>
+<p>@see os.setexitcode</p>
+<h2 id="fields">fields</h2>
+<hr />
+<h3 id="osplatform">os.platform</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nv">os</span><span class="p">.</span><span class="py">platform</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L404">lualibs-os.lua#L404</a></li>
+</ul>
+<h3 id="oslibsuffix">os.libsuffix</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">os</span><span class="p">.</span><span class="py">libsuffix</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L210-L214">lualibs-os.lua#L210-L214</a></li>
+</ul>
+<h3 id="osbinsuffix">os.binsuffix</h3>
+<hr />
+<div class="language-lua highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nv">os</span><span class="p">.</span><span class="py">binsuffix</span><span class="p">:</span><span class="w"> </span><span class="py">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span></code></pre></div>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Corresponding Lua source code: <a href="https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L210-L214">lualibs-os.lua#L210-L214</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["quick-links", "navigation", "search", "toc", "fullscreen", "bookmarks", "tabs", "code", "edit-on-github", "language-selector", "code", "cover", "footer", "social-share", "theme-switcher"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
