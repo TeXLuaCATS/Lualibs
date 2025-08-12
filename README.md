@@ -2,9 +2,9 @@
 
 Definitions for the [lualibs](https://ctan.org/pkg/lualibs) library.
 
-TeXLuaCats-Repository: https://github.com/TeXLuaCATS/Lualibs (upstream)
+TeXLuaCATS-Repository: https://github.com/TeXLuaCATS/Lualibs (upstream)
 
-LuaCats-Repository: https://github.com/LuaCATS/tex-lualibs (downstream)
+LuaCATS-Repository: https://github.com/LuaCATS/tex-lualibs (downstream)
 
 ## About the documented project
 
