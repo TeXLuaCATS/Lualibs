@@ -19,5 +19,6 @@ _N.CLD_tonumber = "page 84"
 ---@param value any
 ---
 ---@return integer
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/dir.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---
+---{{ contribute }}
 function boolean.tonumber(value) end

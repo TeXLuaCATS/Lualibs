@@ -9,7 +9,7 @@ statistics = {}
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L37-L39](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L37-L39)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.hastiming(instance) end
 
 ---
@@ -17,7 +17,7 @@ function statistics.hastiming(instance) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L41-L43](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L41-L43)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.resettiming(instance) end
 
 ---
@@ -25,7 +25,7 @@ function statistics.resettiming(instance) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L102-L116](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L102-L116)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.starttiming(instance, reset) end
 
 ---
@@ -33,7 +33,7 @@ function statistics.starttiming(instance, reset) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L118-L134](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L118-L134)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.stoptiming(instance) end
 
 ---
@@ -41,7 +41,7 @@ function statistics.stoptiming(instance) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L136-L149](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L136-L149)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.benchmarktimer(instance) end
 
 ---
@@ -49,7 +49,7 @@ function statistics.benchmarktimer(instance) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L151-L158](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L151-L158)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.elapsed(instance) end
 
 ---
@@ -57,7 +57,7 @@ function statistics.elapsed(instance) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L160-L176](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L160-L176)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.currenttime(instance) end
 
 ---
@@ -65,7 +65,7 @@ function statistics.currenttime(instance) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L178-L180](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L178-L180)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.elapsedtime(instance) end
 
 ---
@@ -73,7 +73,7 @@ function statistics.elapsedtime(instance) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L182-L184](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L182-L184)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.elapsedindeed(instance) end
 
 ---
@@ -81,7 +81,7 @@ function statistics.elapsedindeed(instance) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L186-L190](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L186-L190)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.elapsedseconds(instance, rest) end
 
 ---
@@ -89,7 +89,7 @@ function statistics.elapsedseconds(instance, rest) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L205-L212](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L205-L212)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.register(tag, fnc) end
 
 ---
@@ -97,7 +97,7 @@ function statistics.register(tag, fnc) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L216-L260](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L216-L260)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.show() end
 
 ---
@@ -105,7 +105,7 @@ function statistics.show() end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L262-L269](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L262-L269)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.memused() end
 
 ---
@@ -113,7 +113,7 @@ function statistics.memused() end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L277-L282](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L277-L282)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.formatruntime(runtime) end
 
 ---
@@ -121,7 +121,7 @@ function statistics.formatruntime(runtime) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L277-L282](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L277-L282)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.runtime() end
 
 ---
@@ -129,7 +129,7 @@ function statistics.runtime() end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L286-L299](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L286-L299)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.timed(action, all) end
 
 ---
@@ -137,5 +137,5 @@ function statistics.timed(action, all) end
 ---
 ---* Corresponding Lua source code: [lualibs-trac-inf.lua#L303-L312](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-trac-inf.lua#L303-L312)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/statistics.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function statistics.tracefunction(base, tag) end

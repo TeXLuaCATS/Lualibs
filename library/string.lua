@@ -32,7 +32,7 @@ _N.CLD_quoted_unquoted = "page 100"
 ---
 ---@return string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.quoted(text) end
 
 ---
@@ -59,7 +59,7 @@ function string.quoted(text) end
 ---
 ---@return string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.quote(text) end
 
 ---
@@ -85,7 +85,7 @@ function string.quote(text) end
 ---
 ---@return string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.unquoted(text) end
 
 ---
@@ -114,7 +114,7 @@ function string.unquoted(text) end
 ---
 ---@return string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.unquote(text) end
 
 _N.CLD_count = "page 100"
@@ -138,7 +138,7 @@ _N.CLD_count = "page 100"
 ---@param pattern string
 ---
 ---@return integer count
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.count(text, pattern) end
 
 _N.CLD_count = "page 100"
@@ -164,7 +164,7 @@ _N.CLD_count = "page 100"
 ---@param tail? string
 ---
 ---@return string text
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.limit(text, max, tail) end
 
 _N.CLD_strip = "page 99"
@@ -192,7 +192,7 @@ _N.CLD_strip = "page 99"
 ---@param text string
 ---
 ---@return string text
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.strip(text) end
 
 ---
@@ -215,7 +215,7 @@ function string.strip(text) end
 ---@param text string
 ---
 ---@return string text
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.fullstrip(text) end
 
 ---
@@ -230,7 +230,7 @@ function string.fullstrip(text) end
 ---* Corresponding Lua source code: [lualibs-string.lua#L86-L88](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-string.lua#L86-L88)
 ---* Corresponding Lua source code: [lualibs-lpeg.lua#L202](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-lpeg.lua#L202)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.collapsespaces(str) end
 
 ---
@@ -245,7 +245,7 @@ function string.collapsespaces(str) end
 ---* Corresponding Lua source code: [lualibs-string.lua#L90-L92](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-string.lua#L90-L92)
 ---* Corresponding Lua source code: [lualibs-lpeg.lua#L203](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-lpeg.lua#L203)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.nospaces(str) end
 
 ---
@@ -282,7 +282,7 @@ function string.nospaces(str) end
 ---* Corresponding Lua source code: [lualibs-string.lua#L94-L96](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-string.lua#L94-L96)
 ---* Corresponding Lua source code: [lualibs-lpeg.lua#L296](https://github.com/latex3/lualibs/blob/a86c5cdf063692ff7d31da439bddd88c1a3ec0c9/lualibs-lpeg.lua#L296)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.longtostring(str) end
 
 _N.CLD_is_empty = "page 101"
@@ -293,7 +293,7 @@ _N.CLD_is_empty = "page 101"
 ---* ConTeXt wiki: [ConTeXt and Lua programming/Extensions to the Lua IO library/String manipulation](https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library/String_manipulation)
 ---* Corresponding Lua source code: [lualibs-string.lua#L106-L112](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-string.lua#L106-L112)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.is_empty(str) end
 
 _N.escapedpattern_topattern = "page 101"
@@ -325,7 +325,7 @@ _N.escapedpattern_topattern = "page 101"
 ---@param simple? boolean
 ---
 ---@return string text
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.escapedpattern(text, simple) end
 
 ---
@@ -334,7 +334,7 @@ function string.escapedpattern(text, simple) end
 ---* ConTeXt wiki: [ConTeXt and Lua programming/Extensions to the Lua IO library/String manipulation](https://wiki.contextgarden.net/ConTeXt_and_Lua_programming/Extensions_to_the_Lua_IO_library/String_manipulation)
 ---* Corresponding Lua source code: [lualibs-string.lua#L172-L187](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-string.lua#L172-L187)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.topattern(str, lowercase, strict) end
 
 ---
@@ -344,7 +344,7 @@ function string.topattern(str, lowercase, strict) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.valid(text, default) end
 
 ---
@@ -354,7 +354,7 @@ function string.valid(text, default) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.itself(text) end
 
 ---
@@ -365,7 +365,7 @@ function string.itself(text) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.totable(text, bytes) end
 
 ---
@@ -373,7 +373,7 @@ function string.totable(text, bytes) end
 ---
 ---* Corresponding Lua source code: [lualibs-string.lua#L216-L218](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-string.lua#L216-L218)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.tformat(fmt) end
 
 _N.boolean = "lualibs-boolean.lua"
@@ -385,7 +385,7 @@ _N.boolean = "lualibs-boolean.lua"
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.booleanstring(text) end
 
 _N.CLD_toboolean = "page 84"
@@ -400,7 +400,7 @@ _N.CLD_toboolean = "page 84"
 ---@param tolerant boolean # If `true`, the strings `true`, `yes`, `on`, `1`, `t` and the number `1` all turn into `true`. Otherwise only `true` is honoured.
 ---
 ---@return boolean
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function toboolean(text, tolerant) end
 
 ---
@@ -413,7 +413,7 @@ function toboolean(text, tolerant) end
 ---@param tolerant boolean # If `true`, the strings `true`, `yes`, `on`, `1`, `t` and the number `1` all turn into `true`. Otherwise only `true` is honoured.
 ---
 ---@return boolean
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.toboolean(text, tolerant) end
 
 _N.CLD_is_boolean = "page 85"
@@ -434,7 +434,7 @@ _N.CLD_is_boolean = "page 85"
 ---
 ---@return boolean
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.is_boolean(text, default, strict) end
 
 _N.lpeg = "lualibs-lpeg.lua"
@@ -473,7 +473,7 @@ _N.CLD_split_splitlines_checkedsplit = "page 99"
 ---
 ---@return string[]
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.split(string, separator) end
 
 ---
@@ -483,7 +483,7 @@ function string.split(string, separator) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.splitlines(text) end
 
 ---
@@ -518,7 +518,7 @@ function string.splitlines(text) end
 ---
 ---@return string[]
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.checkedsplit(text, separator) end
 
 ---
@@ -528,7 +528,7 @@ function string.checkedsplit(text, separator) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.splitup(text, separator) end
 
 ---
@@ -538,7 +538,7 @@ function string.splitup(text, separator) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.tobytes(text) end
 
 ---
@@ -548,7 +548,7 @@ function string.tobytes(text) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.todec(text) end
 
 ---
@@ -567,7 +567,7 @@ function string.todec(text) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.tohex(text) end
 
 ---
@@ -586,7 +586,7 @@ function string.tohex(text) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.toHEX(text) end
 
 _N.unicode = "lualibs-unicode.lua"
@@ -598,7 +598,7 @@ _N.unicode = "lualibs-unicode.lua"
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.toutf(text) end
 
 ---
@@ -608,7 +608,7 @@ function string.toutf(text) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.utfpadd(text, n) end
 
 _N.util_dim = "lualibs-util-dim.lua"
@@ -630,7 +630,7 @@ _N.util_dim = "lualibs-util-dim.lua"
 ---
 ---@return integer scaled_points
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.todimen(text) end
 
 _N.util_str = "lualibs-util-str.lua"
@@ -642,7 +642,7 @@ _N.util_str = "lualibs-util-str.lua"
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.autodouble(text, sep) end
 
 ---
@@ -652,7 +652,7 @@ function string.autodouble(text, sep) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.autosingle(text, sep) end
 
 ---
@@ -660,7 +660,7 @@ function string.autosingle(text, sep) end
 ---
 ---* Corresponding Lua source code: [lualibs-util-str.lua#L467-L475](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-str.lua#L467-L475)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.tracedchar(b) end
 
 ---
@@ -670,7 +670,7 @@ function string.tracedchar(b) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.escapedquotes(text) end
 
 ---
@@ -680,7 +680,7 @@ function string.escapedquotes(text) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.unescapedquotes(text) end
 
 ---
@@ -690,7 +690,7 @@ function string.unescapedquotes(text) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.optionalquoted(text) end
 
 ---
@@ -700,7 +700,7 @@ function string.optionalquoted(text) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.replacenewlines(text) end
 
 ---
@@ -710,7 +710,7 @@ function string.replacenewlines(text) end
 ---
 ---@param text string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.containsws(text, what) end
 
 ---
@@ -762,7 +762,7 @@ function string.containsws(text, what) end
 ---@param text string
 ---@param ... any
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.formatter(text, ...) end
 
 ---
@@ -784,7 +784,7 @@ function string.formatter(text, ...) end
 ---
 ---@return string text
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.texnewlines(text) end
 
 ---
@@ -808,7 +808,7 @@ function string.texnewlines(text) end
 ---
 ---@return string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.utfpadding(text, n) end
 
 ---
@@ -829,5 +829,5 @@ function string.utfpadding(text, n) end
 ---
 ---@return fun(text: string): string[]
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/string.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function string.wordsplitter(text) end

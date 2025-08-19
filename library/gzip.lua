@@ -15,7 +15,7 @@ gzip = {}
 ---@return string suffix
 ---@return boolean gzipped
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/gzip.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function gzip.suffix(filename) end
 
 ---
@@ -27,7 +27,7 @@ function gzip.suffix(filename) end
 ---
 ---@return boolean compressed
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/gzip.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function gzip.compressed(s) end
 
 ---
@@ -35,7 +35,7 @@ function gzip.compressed(s) end
 ---
 ---* Corresponding Lua source code: [lualibs-util-zip.lua#L634-L648](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-zip.lua#L634-L648)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/gzip.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function gzip.load(filename) end
 
 ---
@@ -43,7 +43,7 @@ function gzip.load(filename) end
 ---
 ---* Corresponding Lua source code: [lualibs-util-zip.lua#L650-L661](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-zip.lua#L650-L661)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/gzip.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function gzip.save(filename, data, level, originalname) end
 
 ---
@@ -51,7 +51,7 @@ function gzip.save(filename, data, level, originalname) end
 ---
 ---* Corresponding Lua source code: [lualibs-util-zip.lua#L663-L674](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-zip.lua#L663-L674)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/gzip.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function gzip.compress(s, level) end
 
 ---
@@ -59,5 +59,5 @@ function gzip.compress(s, level) end
 ---
 ---* Corresponding Lua source code: [lualibs-util-zip.lua#L676-L682](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-util-zip.lua#L676-L682)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/gzip.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function gzip.decompress(s) end

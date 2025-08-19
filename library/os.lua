@@ -12,7 +12,7 @@ _N = {}
 
 _N.CLD_resultof_launch = ""
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.resultof(command) end
 
 ---
@@ -20,7 +20,7 @@ function os.resultof(command) end
 ---
 ---* Corresponding Lua source code: [lualibs-os.lua#L246-L251](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L246-L251)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.launch(str) end
 
 _N.CLD_type_name_platform_libsuffix_binsuffix = ""
@@ -53,7 +53,7 @@ _N.runtime = ""
 ---
 ---* Corresponding Lua source code: [lualibs-os.lua#L262-L264](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L262-L264)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.runtime() end
 
 ---
@@ -61,7 +61,7 @@ function os.runtime() end
 ---
 ---* Corresponding Lua source code: [lualibs-os.lua#L453-L469](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L453-L469)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.timezone(difference) end
 
 _N.CLD_runtime = ""
@@ -73,7 +73,7 @@ _N.CLD_runtime = ""
 ---
 ---@return string uuid
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.uuid() end
 
 ---
@@ -81,7 +81,7 @@ function os.uuid() end
 ---
 ---* Corresponding Lua source code: [lualibs-os.lua#L236-L238](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L236-L238)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.pipeto(command) end
 
 ---
@@ -89,7 +89,7 @@ function os.pipeto(command) end
 ---
 ---* Corresponding Lua source code: [lualibs-os.lua#L478-L492](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L478-L492)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.fulltime(t, default) end
 
 ---
@@ -97,7 +97,7 @@ function os.fulltime(t, default) end
 ---
 ---* Corresponding Lua source code: [lualibs-os.lua#L500-L514](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L500-L514)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.localtime(t, default) end
 
 ---
@@ -105,7 +105,7 @@ function os.localtime(t, default) end
 ---
 ---* Corresponding Lua source code: [lualibs-os.lua#L516-L523](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L516-L523)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.converttime(t, default) end
 
 ---
@@ -115,7 +115,7 @@ function os.converttime(t, default) end
 ---
 ---@return osdate
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.today() end
 
 ---
@@ -126,7 +126,7 @@ function os.today() end
 ---* Corresponding Lua source code: [lualibs-os.lua#L533-L535](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L533-L535)
 ---
 ---@return string # for example `2021-10-22 08:22:54`.
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.now() end
 
 ---
@@ -149,7 +149,7 @@ function os.now() end
 ---
 ---@return string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.which(filename) end
 
 ---
@@ -172,7 +172,7 @@ function os.which(filename) end
 ---
 ---@return string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.where(filename) end
 
 ---
@@ -184,7 +184,7 @@ function os.where(filename) end
 ---
 ---@return boolean
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.isleapyear(year) end
 
 ---
@@ -200,7 +200,7 @@ function os.isleapyear(year) end
 ---
 ---@return integer number_of_days # Calculates the number of days of a month if the parameter `day` is missing. Calculates the number of days of the year if the parameters `month` and `day` are missing.
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.nofdays(year, month, day) end
 
 ---
@@ -208,7 +208,7 @@ function os.nofdays(year, month, day) end
 ---
 ---* Corresponding Lua source code: [lualibs-os.lua#L637-L639](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L637-L639)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.weekday(day, month, year) end
 
 ---
@@ -216,7 +216,7 @@ function os.weekday(day, month, year) end
 ---
 ---* Corresponding Lua source code: [lualibs-os.lua#L641-L658](https://github.com/latex3/lualibs/blob/26fe094de645fdee79f65d9fc93040a53cb97272/lualibs-os.lua#L641-L658)
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.validdate(year, month, day) end
 
 ---
@@ -233,7 +233,7 @@ function os.validdate(year, month, day) end
 ---
 ---@return string|osdate
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.date(format, time) end
 
 ---
@@ -245,7 +245,7 @@ function os.date(format, time) end
 ---
 ---@param code integer|string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.setexitcode(code) end
 
 ---
@@ -257,5 +257,5 @@ function os.setexitcode(code) end
 ---
 ---@param code? integer|string
 ---
----😱 [Types](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/lualibs/os.lua) incomplete or incorrect? 🙏 [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---{{ contribute }}
 function os.exit(code) end
