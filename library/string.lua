@@ -2,9 +2,9 @@
 ---https://github.com/latex3/lualibs/blob/main/lualibs-util-str.lua
 ---https://github.com/latex3/lualibs/blob/main/lualibs-lpeg.lua
 
----
----A helper table to better navigate through the documentation using the
----outline: https://github.com/Josef-Friedrich/LuaTeX_Lua-API#navigation-table-_n
+-- The `_N` table makes it easier to navigate through the type definitions with
+-- the help of the outline:
+-- https://github.com/TeXLuaCATS/meta?tab=readme-ov-file#navigation-table-_n
 _N = {}
 
 _N.string = "lualibs-string.lua"
