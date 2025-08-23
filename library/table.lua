@@ -91,6 +91,7 @@ function table.sortedhashkeys(tab, cmp) end
 ---  print(key,value)
 ---end
 ---```
+---
 ---__Reference:__
 ---
 ---* Context Lua Documents, July 8, 2023: [page 77](https://www.pragma-ade.nl/general/manuals/cld-mkiv.pdf)
@@ -105,8 +106,8 @@ function table.sortedhashkeys(tab, cmp) end
 function table.sortedhash(tab, cmp) end
 
 ---
----a synonym of sortedhash which sometimes looks more natural
----when used alongside the pairs and ipairs iterators.
+---a synonym of sortedhash which sometimes looks more natural when used
+---alongside the pairs and ipairs iterators.
 ---
 ---__Reference:__
 ---
@@ -185,7 +186,8 @@ function table.serialize(root, name, specification) end
 function table.print(tab) end
 
 ---
----Write the table to a file, using reasonable chunks so that less memory is used.
+---Write the table to a file, using reasonable chunks so that less memory is
+---used.
 ---
 ---__Reference:__
 ---
@@ -260,8 +262,8 @@ function table.are_equal(a, b, n, m) end
 _N.CLD_tohash_fromhash_swapped_swaphash_reversed_reverse_mirrored = "page 79"
 
 ---
----Convert a list into a hash so
----that we can easily check if (a string) is in a given set.
+---Convert a list into a hash so that we can easily check if (a string) is in a
+---given set.
 ---
 ---__Example:__
 ---
@@ -286,8 +288,8 @@ _N.CLD_tohash_fromhash_swapped_swaphash_reversed_reverse_mirrored = "page 79"
 function table.tohash(tab, value) end
 
 ---
----Create a list of keys from a hashed table where
----each value that is not `false` or `nil` is present.
+---Create a list of keys from a hashed table where each value that is not
+---`false` or `nil` is present.
 ---
 ---__Example:__
 ---
@@ -354,7 +356,8 @@ function table.swapped(tab, s) end
 function table.reverse(tab) end
 
 ---
----Reverse the values in an indexed table and reverses the table itself (inplace).
+---Reverse the values in an indexed table and reverses the table itself
+---(inplace).
 ---
 ---__Example:__
 ---
@@ -401,8 +404,8 @@ function table.mirrored(tab) end
 _N.CLD_append_prepend = "page 81"
 
 ---
----The first indexed table gets appended by the second indexed table.
----The first indexed table is returned as well.
+---The first indexed table gets appended by the second indexed table. The first
+---indexed table is returned as well.
 ---
 ---__Example:__
 ---
@@ -429,8 +432,8 @@ _N.CLD_append_prepend = "page 81"
 function table.append(tab, list) end
 
 ---
----The first indexed table gets prepended by the second indexed table.
----The first indexed table is returned as well.
+---The first indexed table gets prepended by the second indexed table. The first
+---indexed table is returned as well.
 ---
 ---__Example:__
 ---
@@ -497,8 +500,8 @@ function table.imerge(tab, ...) end
 ---
 ---Merge multiple hashes.
 ---
----The variants ending with a `d` merge the given list of tables and return
----the result leaving the first argument untouched.
+---The variants ending with a `d` merge the given list of tables and return the
+---result leaving the first argument untouched.
 ---
 ---__Reference:__
 ---
@@ -515,8 +518,8 @@ function table.merged(...) end
 ---
 ---Merge multiple indexed tables.
 ---
----The variants ending with a `d` merge the given list of tables and return
----the result leaving the first argument untouched.
+---The variants ending with a `d` merge the given list of tables and return the
+---result leaving the first argument untouched.
 ---
 ---__Reference:__
 ---
@@ -553,9 +556,9 @@ function table.copy(tab, tables) end
 ---
 ---Make a real and deep copy.
 ---
----This function is faster than table.copy()
----because it does not check for circular references and does not share tables when
----possible. In practice using the fast variant is okay.
+---This function is faster than table.copy() because it does not check for
+---circular references and does not share tables when possible. In practice
+---using the fast variant is okay.
 ---
 ---__Reference:__
 ---
@@ -590,9 +593,8 @@ _N.CLD_loweredkeys = "page 82"
 ---
 ---Return a new table with the keys being lower case.
 ---
----This is handy
----in cases where the keys have a change to be inconsistent, as can be the case when users input keys
----and values in less controlled ways.
+---This is handy in cases where the keys have a change to be inconsistent, as
+---can be the case when users input keys and values in less controlled ways.
 ---
 ---__Reference:__
 ---

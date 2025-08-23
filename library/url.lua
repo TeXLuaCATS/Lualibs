@@ -22,9 +22,10 @@ _N.split_hashed_construct = ""
 ---@field noscheme boolean # for example `false`.
 
 ---
----A string is split into a hash table with these keys using the following function:
----The hash variant is more tolerant than the split. In the hash there is also a key `original` that holds
----the original URL and and the boolean noscheme indicates if there is a scheme at all.
+---A string is split into a hash table with these keys using the following
+---function: The hash variant is more tolerant than the split. In the hash there
+---is also a key `original` that holds the original URL and and the boolean
+---noscheme indicates if there is a scheme at all.
 ---
 ---__Example:__
 ---
